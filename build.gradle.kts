@@ -12,9 +12,9 @@ plugins {
 }
 
 // The output jar will be named jarBaseName-version, you can change that.
-val jarBaseName = "FC_External"
+val jarBaseName = "SkyblockUltimate"
 group = "fcexternal"
-version = "1.0"
+version = "0.0.1-BETA"
 
 
 repositories {

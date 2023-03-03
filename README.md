@@ -1,20 +1,27 @@
 # FIRST RELEASE 11.03.2023 
-# External Modules for Floppa Client Template
+# Skyblock Ultimate
 
-This Repository serves as a template for creating external modules for Floppa Client.
-It features a minimalistic template for a module both in Java and in Kotlin.
-Click on `Use this template` or fork this repository to begin.
+A Funny little FloppaClient addon becaus i was bored. Enjoy!
 
-If you are not sure which one of the two to use, I strongly recommend that you use Kotlin.
+## Features
+none
 
-You should delete whichever you are not using.
-
-You can create as many external modules as you want in one project. You can also create additional classes to use as 
-libraries.
-
-Mixins and adding resources are not supported.
-
-
-## Building your Module.
-
-To build your Module run the gradle task named `build`.
+## TODO
+- [ ] Command "/use" with parameters -pitch and -yaw to change your view and -frominv to use items from your inventory not recommended
+- [ ] Replace AutoClip with AutoStuff module -> basically .brush placecmd from oringo but it can also do other stuff like walking etc.
+- [ ] ImpactKiller module -> spams hype till all mobs in radius are dead
+- [ ] Route Recorder -> record a rout including all movement and then render it in a line and show what to do
+- [ ] AutoFish -> automatically fish(why idk bored)
+- [ ] ClearHelper -> some features that help your clear
+- [ ] Dungeon Session -> show your dungeon session stats in a hud element
+- [ ] Auto Door -> automatically open doors
+- [ ] Dillo Finder -> got kicked from mini cult 3rd time
+- [ ] AutoFireFreeze -> auto firefreezes in m3/f3
+- [ ] Legit Terms -> like auto terminals but you still have to click so technically its not against the rules
+- [ ] Hit Sound -> plays a sound when you hit/kill a mob
+- [ ] Jerry Gun Fly -> fly with the jerry chinge gun drains much mana but idk maybe its worth it
+- [ ] No Cheater -> disables all modules that are very obvious
+- [ ] AOTD -> Aspect of the Death (something funny)
+- [ ] Inventory Hud -> shows your inventory in a hud element will hame some funny styles
+- [ ] Array List -> shows all modules in a hud element
+- [ ] Add more features
