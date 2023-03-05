@@ -9,6 +9,7 @@ import floppaclient.module.settings.impl.ColorSetting
 import floppaclient.module.settings.impl.NumberSetting
 import floppaclient.module.settings.impl.StringSetting
 import floppaclient.utils.ChatUtils.modMessage
+import me.anemoi.sbutlimate.commands.SayCommand
 import me.anemoi.sbutlimate.commands.ToggleCommand
 import me.anemoi.sbutlimate.commands.UseCommand
 import net.minecraftforge.client.ClientCommandHandler
@@ -22,9 +23,29 @@ object MainModule : Module(
 ) {
 
     private val mySetting: Boolean by BooleanSetting("Funny Setting", false, Visibility.VISIBLE, "It does nothing")
-    private val mySetting2: Color by ColorSetting("Funny Setting", Color(255, 0, 0, 0), true, Visibility.VISIBLE, "It does nothing")
-    private val mySetting3: Double by NumberSetting("Funny Setting", 5.0, 0.0, 10.0, 1.0, Visibility.VISIBLE, "It does nothing")
-    private val mySetting5: String by StringSetting("Funny Setting", "ok why am i here", 100, Visibility.VISIBLE, "It does nothing")
+    private val mySetting2: Color by ColorSetting(
+        "Funny Setting",
+        Color(255, 0, 0, 0),
+        true,
+        Visibility.VISIBLE,
+        "It does nothing"
+    )
+    private val mySetting3: Double by NumberSetting(
+        "Funny Setting",
+        5.0,
+        0.0,
+        10.0,
+        1.0,
+        Visibility.VISIBLE,
+        "It does nothing"
+    )
+    private val mySetting5: String by StringSetting(
+        "Funny Setting",
+        "ok why am i here",
+        100,
+        Visibility.VISIBLE,
+        "It does nothing"
+    )
 
     override fun onDisable() {
         modMessage("Fuck you, you should not disable this!", true)
@@ -39,6 +60,7 @@ object MainModule : Module(
         toggle()
         ClientCommandHandler.instance.registerCommand(UseCommand())
         ClientCommandHandler.instance.registerCommand(ToggleCommand())
+        ClientCommandHandler.instance.registerCommand(SayCommand())
         println("Initialized main module of skyblock ultimate!!!!!")
     }
 }

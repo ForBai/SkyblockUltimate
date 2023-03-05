@@ -9,7 +9,7 @@ none
 ## TODO
 - [ ] Command "/use" with parameters -pitch and -yaw to change your view and -frominv to use items from your inventory not recommended
 - [x] Replace AutoClip with AutoStuff module -> basically .brush placecmd from oringo but it can also do other stuff like walking etc.
-- [ ] ImpactKiller module -> spams hype till all mobs in radius are dead
+- [x] ImpactKiller module -> spams hype till all mobs in radius are dead
 - [ ] Route Recorder -> record a rout including all movement and then render it in a line and show what to do
 - [ ] AutoFish -> automatically fish(why idk bored)
 - [ ] ClearHelper -> some features that help your clear
