@@ -8,7 +8,7 @@ none
 
 ## TODO
 - [ ] Command "/use" with parameters -pitch and -yaw to change your view and -frominv to use items from your inventory not recommended
-- [ ] Replace AutoClip with AutoStuff module -> basically .brush placecmd from oringo but it can also do other stuff like walking etc.
+- [x] Replace AutoClip with AutoStuff module -> basically .brush placecmd from oringo but it can also do other stuff like walking etc.
 - [ ] ImpactKiller module -> spams hype till all mobs in radius are dead
 - [ ] Route Recorder -> record a rout including all movement and then render it in a line and show what to do
 - [ ] AutoFish -> automatically fish(why idk bored)
@@ -22,6 +22,6 @@ none
 - [ ] Jerry Gun Fly -> fly with the jerry chinge gun drains much mana but idk maybe its worth it
 - [ ] No Cheater -> disables all modules that are very obvious
 - [ ] AOTD -> Aspect of the Death (something funny)
-- [ ] Inventory Hud -> shows your inventory in a hud element will hame some funny styles
+- [x] Inventory Hud -> shows your inventory in a hud element will hame some funny styles
 - [ ] Array List -> shows all modules in a hud element
 - [ ] Add more features

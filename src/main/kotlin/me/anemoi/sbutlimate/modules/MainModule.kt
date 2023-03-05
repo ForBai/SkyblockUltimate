@@ -9,6 +9,7 @@ import floppaclient.module.settings.impl.ColorSetting
 import floppaclient.module.settings.impl.NumberSetting
 import floppaclient.module.settings.impl.StringSetting
 import floppaclient.utils.ChatUtils.modMessage
+import me.anemoi.sbutlimate.commands.ToggleCommand
 import me.anemoi.sbutlimate.commands.UseCommand
 import net.minecraftforge.client.ClientCommandHandler
 import java.awt.Color
@@ -37,6 +38,7 @@ object MainModule : Module(
     override fun onInitialize() {
         toggle()
         ClientCommandHandler.instance.registerCommand(UseCommand())
+        ClientCommandHandler.instance.registerCommand(ToggleCommand())
         println("Initialized main module of skyblock ultimate!!!!!")
     }
 }

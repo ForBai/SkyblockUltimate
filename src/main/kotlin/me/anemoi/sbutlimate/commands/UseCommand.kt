@@ -1,6 +1,8 @@
 package me.anemoi.sbutlimate.commands
 
 import floppaclient.utils.ChatUtils
+import floppaclient.utils.fakeactions.FakeActionUtils
+import me.anemoi.sbutlimate.utils.UseUtils
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
 
@@ -35,6 +37,8 @@ class UseCommand : CommandBase() {
             var fromInv = true
             var delay = 0
             var doDelay = false
+            var amount = 1;
+            var setAmount = false;
             var itemName = ""
             for (arg in args) {
                 if (arg.startsWith("-pitch=")) {
@@ -48,8 +52,29 @@ class UseCommand : CommandBase() {
                 } else if (arg.startsWith("-delay=")) {
                     delay = arg.substring(7).toInt()
                     doDelay = true
-                }else {
+                } else {
                     itemName += " $arg"
+                }
+            }
+
+            if (rotate) {
+                //not implemented
+            } else if (fromInv) {
+                if (doDelay) {
+                    UseUtils.useItemWithDelay(
+                        itemName,
+                        swapBack = true,
+                        fromInv = true,
+                        delay = delay,
+                        ignoreCase = true
+                    )
+                } else {
+                    FakeActionUtils.useItem(
+                        itemName,
+                        swapBack = true,
+                        fromInv = true,
+                        ignoreCase = true
+                    )
                 }
             }
 
