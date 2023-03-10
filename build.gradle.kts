@@ -21,6 +21,7 @@ repositories {
     mavenCentral()
     maven("https://repo.spongepowered.org/repository/maven-public/")
     maven("https://repo.sk1er.club/repository/maven-public")
+    maven("https://repo.polyfrost.cc/releases")
     maven("https://jitpack.io" )
 }
 
@@ -36,6 +37,9 @@ dependencies {
 
     // Will use the latest version of Floppaclient. Alternatively you can specify a version
     implementation("com.github.FloppaCoding:FloppaClient:-SNAPSHOT")
+    compileOnly("cc.polyfrost:lwjgl-legacy:1.0.0-alpha24") {
+        isTransitive = false
+    }
 }
 
 sourceSets {
