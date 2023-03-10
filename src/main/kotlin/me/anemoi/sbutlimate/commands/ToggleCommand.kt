@@ -26,10 +26,10 @@ class ToggleCommand : CommandBase() {
 
     override fun processCommand(sender: ICommandSender, args: Array<String>) {
         if (args.isNotEmpty()){
-            val module = ModuleManager.getModuleByName(args[0])
+            val module = ModuleManager.getModuleByName(args.joinToString(" "))
             if (module != null){
                 module.toggle()
-                ChatUtils.modMessage("§aToggled ${module.name} ${if (module.enabled) "on" else "off"}.")
+                ChatUtils.modMessage("§fToggled ${module.name} ${if (module.enabled) "§aon" else "§coff"}.")
             }else{
                 ChatUtils.modMessage("§cModule not found.")
             }

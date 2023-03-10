@@ -28,6 +28,7 @@ class SayCommand : CommandBase(){
         if (args.isNotEmpty()){
             val message = args.joinToString(" ")
             FloppaClient.mc.thePlayer.sendChatMessage(message)
+            ChatUtils.modMessage("§aSent message: §f$message")
         }else{
             ChatUtils.modMessage("§cPlease specify a message.")
         }
