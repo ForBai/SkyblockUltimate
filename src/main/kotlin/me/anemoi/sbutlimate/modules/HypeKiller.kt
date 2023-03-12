@@ -7,15 +7,16 @@ import floppaclient.module.Module
 import floppaclient.module.SelfRegisterModule
 import floppaclient.module.settings.Visibility
 import floppaclient.module.settings.impl.BooleanSetting
+import floppaclient.module.settings.impl.ColorSetting
 import floppaclient.module.settings.impl.NumberSetting
 import floppaclient.module.settings.impl.StringSetting
 import floppaclient.utils.Utils.containsOneOf
 import floppaclient.utils.fakeactions.FakeActionUtils
-import floppaclient.utils.inventory.InventoryUtils
 import floppaclient.utils.inventory.SkyblockItem
 import gg.essential.universal.ChatColor
 import net.minecraft.entity.item.EntityArmorStand
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+import java.awt.Color
 
 
 @SelfRegisterModule
@@ -63,9 +64,17 @@ object HypeKiller : Module(
     )
     private val renderRadius: Boolean by BooleanSetting(
         "Render Radius",
-        true,
+        false,
         Visibility.VISIBLE,
         "Renders the radius of the aura"
+    )
+
+    private val radiusColor: Color by ColorSetting(
+        "Radius Color",
+        Color(255, 0, 0, 255),
+        true,
+        Visibility.VISIBLE,
+        "Color of the radius"
     )
 
     private var lastClickTime = 0L
@@ -97,7 +106,9 @@ object HypeKiller : Module(
                         if (ChatColor.stripControlCodes(it.displayName.unformattedText)!!.containsOneOf(customMobs)) {
                             armorstandEntitiesInRadius.add(it)
                         }
-                    } else if (ChatColor.stripControlCodes(it.displayName.unformattedText)!!.contains(Regex("❤")) && !customMobs) {
+                    } else if (ChatColor.stripControlCodes(it.displayName.unformattedText)!!
+                            .contains(Regex("❤")) && !customMobs
+                    ) {
                         armorstandEntitiesInRadius.add(it)
                     }
                 }

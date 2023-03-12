@@ -18,7 +18,7 @@ class UseCommand : CommandBase() {
     }
 
     override fun getCommandUsage(sender: ICommandSender): String {
-        return "/$commandName [-pitch=<pitch> -yaw=<yaw> -frominv=<true/false> -delay=<delay>] <item>"
+        return "/$commandName [-pitch=<pitch> -yaw=<yaw> -frominv=<true/false> -delay=<delay> -amount=<amount>] <item>"
     }
 
     override fun getRequiredPermissionLevel(): Int {
@@ -52,29 +52,74 @@ class UseCommand : CommandBase() {
                 } else if (arg.startsWith("-delay=")) {
                     delay = arg.substring(7).toInt()
                     doDelay = true
+                } else if (arg.startsWith("-amount=")) {
+                    amount = arg.substring(8).toInt()
+                    setAmount = true;
                 } else {
                     itemName += " $arg"
                 }
             }
 
+            // make it fully nested so all combinations work
             if (rotate) {
-                //not implemented
-            } else if (fromInv) {
-                if (doDelay) {
-                    UseUtils.useItemWithDelay(
-                        itemName,
-                        swapBack = true,
-                        fromInv = true,
-                        delay = delay,
-                        ignoreCase = true
-                    )
+                if (fromInv) {
+                    if (doDelay) {
+                        if (setAmount) {
+                            UseUtils.useFromInvWithDelayAndRotation(itemName, amount, delay, pitch, yaw)
+                        } else {
+                            UseUtils.useFromInvWithDelayAndRotation(itemName, delay, pitch, yaw)
+                        }
+                    } else {
+                        if (setAmount) {
+                            UseUtils.useFromInvWithRotation(itemName, amount, pitch, yaw)
+                        } else {
+                            UseUtils.useFromInvWithRotation(itemName, pitch, yaw)
+                        }
+                    }
                 } else {
-                    FakeActionUtils.useItem(
-                        itemName,
-                        swapBack = true,
-                        fromInv = true,
-                        ignoreCase = true
-                    )
+                    if (doDelay) {
+                        if (setAmount) {
+                            UseUtils.useWithDelayAndRotation(itemName, amount, delay, pitch, yaw)
+                        } else {
+                            UseUtils.useWithDelayAndRotation(itemName, delay, pitch, yaw)
+                        }
+                    } else {
+                        if (setAmount) {
+                            UseUtils.useWithRotation(itemName, amount, pitch, yaw)
+                        } else {
+                            UseUtils.useWithRotation(itemName, pitch, yaw)
+                        }
+                    }
+                }
+            } else {
+                if (fromInv) {
+                    if (doDelay) {
+                        if (setAmount) {
+                            UseUtils.useFromInvWithDelay(itemName, amount, delay)
+                        } else {
+                            UseUtils.useFromInvWithDelay(itemName, delay)
+                        }
+                    } else {
+                        if (setAmount) {
+                            UseUtils.useFromInv(itemName, amount)
+                        } else {
+                            UseUtils.useFromInv(itemName)
+                        }
+                    }
+                } else {
+                    if (doDelay) {
+                        if (setAmount) {
+                            UseUtils.useWithDelay(itemName, amount, delay)
+                        } else {
+                            UseUtils.useWithDelay(itemName, delay)
+                        }
+                    } else {
+                        if (setAmount) {
+                            UseUtils.use(itemName, amount)
+                        } else {
+                            UseUtils.use(itemName)
+                        }
+                    }
                 }
             }
 

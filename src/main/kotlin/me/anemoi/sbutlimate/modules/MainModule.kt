@@ -47,6 +47,16 @@ object MainModule : Module(
         "It does nothing"
     )
 
+    val timeBetweenUseActions: Double by NumberSetting(
+        "Time Between Use Actions",
+        80.0,
+        10.0,
+        1000.0,
+        10.0,
+        Visibility.VISIBLE,
+        "The time between each use action in the use command"
+    )
+
     override fun onDisable() {
         modMessage("Fuck you, you should not disable this!", true)
         toggle()
