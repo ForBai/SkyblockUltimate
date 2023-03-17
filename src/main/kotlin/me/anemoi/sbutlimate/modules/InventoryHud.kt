@@ -23,14 +23,14 @@ object InventoryHud : Module(
     private val itemBGColor: Color by ColorSetting("Item BG Color", Color(54, 54, 54, 109), true)
 
     @RegisterHudElement
-    object MyHudElement : HudElement(this, 0, 150, 164, 74) {
+    object InventoryHudElement : HudElement(this, 0, 150, 164, 74) {
         override fun renderHud() {
             // BG
-            HUDRenderUtils.renderRect(x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), bgColor)
+            HUDRenderUtils.renderRect(0.0, 0.0, width.toDouble(), height.toDouble(), bgColor)
 
             var currentItem: ItemStack
-            var itemX = 2 + x
-            var itemY = 2 + y
+            var itemX = 2
+            var itemY = 2
             var slot = 0
 
             for (yRow in 1..4) {
@@ -52,7 +52,7 @@ object InventoryHud : Module(
                         continue@loop
                     }
                 }
-                itemX = 2 + x
+                itemX = 2
                 itemY += 2 + 16
             }
         }

@@ -3,9 +3,11 @@ package me.anemoi.sbultimate.utils;
 import floppaclient.FloppaClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.util.ResourceLocation;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL20.*;
@@ -28,15 +30,18 @@ public class ShaderUtil {
                 case "blurShader":
                     fragmentShaderID = createShader(new ByteArrayInputStream(blurShader.getBytes()), GL_FRAGMENT_SHADER);
                     break;
+                case "roundrectoutline":
+                    fragmentShaderID = createShader(new ByteArrayInputStream(ShadersAsText.ROUNDRECTOUTLINE.getBytes()), GL_FRAGMENT_SHADER);
+                    break;
                 default:
-                    fragmentShaderID = createShader(FloppaClient.mc.getResourceManager().getResource(new ResourceLocation(fragmentShaderLoc)).getInputStream(), GL_FRAGMENT_SHADER);
+                    fragmentShaderID = createShader(new ByteArrayInputStream(ShadersAsText.ROUNDRECTOUTLINE.getBytes()), GL_FRAGMENT_SHADER);
                     break;
             }
             glAttachShader(program, fragmentShaderID);
-            int vertexShaderID = createShader(FloppaClient.mc.getResourceManager().getResource(new ResourceLocation(vertexShaderLoc)).getInputStream(), GL_VERTEX_SHADER);
+            int vertexShaderID = createShader(new ByteArrayInputStream(ShadersAsText.VERTEX.getBytes()), GL_VERTEX_SHADER);
             glAttachShader(program, vertexShaderID);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -50,7 +55,7 @@ public class ShaderUtil {
     }
 
     public ShaderUtil(String fragmentShaderLoc) {
-        this(fragmentShaderLoc, "textures/vertex.vsh");
+        this(fragmentShaderLoc, "vertex.vsh");
     }
 
     public void init() {
