@@ -245,9 +245,9 @@ object Predict : Module(
     }
 
     private fun renderVec(tracePos: TracePos) {
-        val x: Double = tracePos.pos.xCoord - getRenderPosX()
-        val y: Double = tracePos.pos.yCoord - getRenderPosY()
-        val z: Double = tracePos.pos.zCoord - getRenderPosZ()
+        val x: Double = tracePos.pos.xCoord - mc.renderManager.viewerPosX
+        val y: Double = tracePos.pos.yCoord - mc.renderManager.viewerPosY
+        val z: Double = tracePos.pos.zCoord - mc.renderManager.viewerPosZ
         GL11.glVertex3d(x, y, z)
     }
 
@@ -387,9 +387,9 @@ object Predict : Module(
                 )!!
             }
             GL11.glVertex3d(
-                v.xCoord - getRenderPosX(),
-                v.yCoord - getRenderPosY(),
-                v.zCoord - getRenderPosZ()
+                v.xCoord - mc.renderManager.viewerPosX,
+                v.yCoord - mc.renderManager.viewerPosY,
+                v.zCoord - mc.renderManager.viewerPosZ
             )
             first = false
         }

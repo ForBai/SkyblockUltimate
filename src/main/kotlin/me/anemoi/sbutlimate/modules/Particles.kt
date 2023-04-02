@@ -201,9 +201,9 @@ object Particles : Module(
             GL11.glEnable(GL11.GL_LINE_SMOOTH)
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
             try {
-                val posX: Double = x - getRenderPosX()
-                val posY: Double = y - getRenderPosY()
-                val posZ: Double = z - getRenderPosZ()
+                val posX: Double = x - mc.renderManager.viewerPosX
+                val posY: Double = y - mc.renderManager.viewerPosY
+                val posZ: Double = z - mc.renderManager.viewerPosZ
                 val distanceFromPlayer: Double = mc.thePlayer.getDistance(x, y - 1, z)
                 var quality = (distanceFromPlayer * 4 + 10).toInt()
                 if (quality > 350) quality = 350
