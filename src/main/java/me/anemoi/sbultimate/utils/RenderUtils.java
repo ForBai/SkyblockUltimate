@@ -950,4 +950,73 @@ public class RenderUtils {
         glEnable(GL_CULL_FACE);
         glPopMatrix();
     }
+    public static Color injectAlpha(final Color color, final int alpha) {
+        int alph = MathHelper.clamp_int(alpha, 0, 255);
+        return new Color(color.getRed(), color.getGreen(), color.getBlue(), alph);
+    }
+
+    public static void drawBlurredShadow2(float x, float y, float width, float height, int blurRadius, Color color) {
+        GlStateManager.alphaFunc(GL11.GL_GREATER, 0.01f);
+
+        width = width + blurRadius * 2;
+        height = height + blurRadius * 2;
+        x = x - blurRadius;
+        y = y - blurRadius;
+
+        float _X = x - 0.25f;
+        float _Y = y + 0.25f;
+
+        int identifier = (int) (width * height + width + color.hashCode() * blurRadius + blurRadius);
+
+        boolean text2d = GL11.glIsEnabled(GL11.GL_TEXTURE_2D);
+        boolean cface = GL11.glIsEnabled(GL11.GL_CULL_FACE);
+        boolean atest = GL11.glIsEnabled(GL11.GL_ALPHA_TEST);
+        boolean blend = GL11.glIsEnabled(GL11.GL_BLEND);
+
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        glDisable(GL11.GL_CULL_FACE);
+        GL11.glEnable(GL11.GL_ALPHA_TEST);
+        GlStateManager.enableBlend();
+
+        int texId = -1;
+        if (shadowCache.containsKey(identifier)) {
+            texId = shadowCache.get(identifier);
+            GlStateManager.bindTexture(texId);
+        } else {
+            BufferedImage original = new BufferedImage((int) width, (int) height, BufferedImage.TYPE_INT_ARGB);
+
+            Graphics g = original.getGraphics();
+            g.setColor(color);
+            g.fillRect(blurRadius, blurRadius, (int) (width - blurRadius * 2), (int) (height - blurRadius * 2));
+            g.dispose();
+
+            GaussianFilter op = new GaussianFilter(blurRadius);
+
+            BufferedImage blurred = op.filter(original, null);
+
+            texId = TextureUtil.uploadTextureImageAllocate(TextureUtil.glGenTextures(), blurred, true, false);
+            shadowCache.put(identifier, texId);
+        }
+        GL11.glColor4f(1f, 1f, 1f, 1f);
+        GL11.glBegin(GL11.GL_QUADS);
+        GL11.glTexCoord2f(0, 0); // top left
+        GL11.glVertex2f(_X, _Y);
+        GL11.glTexCoord2f(0, 1); // bottom left
+        GL11.glVertex2f(_X, _Y + height);
+        GL11.glTexCoord2f(1, 1); // bottom right
+        GL11.glVertex2f(_X + width, _Y + height);
+        GL11.glTexCoord2f(1, 0); // top right
+        GL11.glVertex2f(_X + width, _Y);
+        GL11.glEnd();
+        GlStateManager.resetColor();
+        if (!blend)
+            GlStateManager.disableBlend();
+        if (!atest)
+            GL11.glDisable(GL11.GL_ALPHA_TEST);
+        if (!cface)
+            GL11.glEnable(GL11.GL_CULL_FACE);
+        if (!text2d) {
+            GL11.glDisable(GL11.GL_TEXTURE_2D);
+        }
+    }
 }
