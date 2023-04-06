@@ -10,8 +10,6 @@ import floppaclient.module.settings.impl.BooleanSetting
 import floppaclient.module.settings.impl.ColorSetting
 import floppaclient.module.settings.impl.NumberSetting
 import floppaclient.module.settings.impl.StringSelectorSetting
-import floppaclient.utils.ChatUtils
-import me.anemoi.sbultimate.utils.PrivateGetter.*
 import me.anemoi.sbultimate.utils.RenderUtils
 import me.anemoi.sbultimate.utils.RenderUtils.injectAlpha
 import me.anemoi.sbultimate.utils.TimeAnimation
@@ -76,7 +74,7 @@ object Predict : Module(
 
     @SubscribeEvent
     fun onRender3D(event: RenderWorldLastEvent?) {
-        val modeS:  String = this.mode.selected
+        val modeS: String = this.mode.selected
         if (modeS.equals("Mode2", true)) {
             PlayerToPearl(event)
         } else if (modeS.equals("Mode1", true)) {
@@ -260,7 +258,7 @@ object Predict : Module(
             if (mc.theWorld.loadedEntityList == null) return
             if (mc.theWorld.loadedEntityList.isEmpty()) return
             var idTrace = traces[id]
-            val entity: Entity = mc.theWorld.getEntityByID(id)?: continue
+            val entity: Entity = mc.theWorld.getEntityByID(id) ?: continue
             if (entity != null) {
                 val vec = entity.positionVector ?: continue
                 if (vec == ORIGIN) {

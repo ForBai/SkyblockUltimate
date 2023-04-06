@@ -20,7 +20,7 @@ import java.awt.Color
 import kotlin.math.sqrt
 
 
-@SelfRegisterModule
+//@SelfRegisterModule
 object Particles : Module(
     "Particles",
     category = Category.RENDER,
