@@ -23,7 +23,7 @@ A Funny little FloppaClient addon becaus I was bored. Enjoy!
 - [ ] AutoFireFreeze -> auto fire freezes in m3/f3
 - [ ] Legit Terms -> like auto terminals, but you still have to click, so technically it's not against the rules
 - [ ] Hit Sound -> plays a sound when you hit/kill a mob
-- [ ] No Cheater -> disables all modules that are very obvious
+- [x] No Cheater -> disables all modules that are very obvious
 - [x] Inventory Hud -> shows your inventory in a hud element will have some funny styles
 - [x] Array List -> shows all modules in a hud element
 - [ ] Add more features
