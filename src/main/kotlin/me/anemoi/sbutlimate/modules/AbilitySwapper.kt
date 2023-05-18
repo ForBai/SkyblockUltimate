@@ -40,12 +40,12 @@ object AbilitySwapper : Module(
         "Delay before starting in ms"
     )
 
-    private val invertStart: Boolean by BooleanSetting(
-        "Invert Start",
-        false,
-        Visibility.VISIBLE,
-        "Inverts the start"
-    )
+//    private val invertStart: Boolean by BooleanSetting(
+//        "Invert Start",
+//        false,
+//        Visibility.VISIBLE,
+//        "Inverts the start"
+//    )
 
     private var slot = false;
     private var thread: Thread? = null
