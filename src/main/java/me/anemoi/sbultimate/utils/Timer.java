@@ -43,11 +43,6 @@ public class Timer implements Passable {
         return time / 1000000L;
     }
 
-    /*
-    public final boolean passed( final long delay ) {
-        return passed( delay, false );
-    }
-     */
     public boolean passed(final long delay, final boolean reset) {
         if (reset) this.reset();
         return System.currentTimeMillis() - this.time >= delay;

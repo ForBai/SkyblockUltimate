@@ -1,3 +1,7 @@
+/*
+ * Thanks to Pan4ur for the original code from his client, ThunderHackPlus(https://github.com/Pan4ur/ThunderHackPlus)
+ * Modified and converted to kotlin by Anemoi/ForBai for use in SBUltimate
+ */
 package me.anemoi.sbutlimate.modules
 
 

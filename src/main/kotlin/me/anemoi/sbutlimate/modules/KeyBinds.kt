@@ -25,19 +25,9 @@ object KeyBinds : Module(
     description = "Keybinds for Skyblock Ultimate",
 ) {
 
-    //turn following settings into my setting format
-//    public final Setting<ColorSetting> shadowColor = this.register(new Setting<>("ShadowColor", new ColorSetting(0xFF101010)));
-//    public final Setting<ColorSetting> color2 = this.register(new Setting<>("Color", new ColorSetting(0xFF101010)));
-//    public final Setting<ColorSetting> color3 = this.register(new Setting<>("Color2",  new ColorSetting(0xC59B9B9B)));
-//    public final Setting<ColorSetting> textColor = this.register(new Setting<>("TextColor", new ColorSetting(0xBEBEBE)));
-//    public final Setting<ColorSetting> oncolor = this.register(new Setting<>("OnColor", new ColorSetting(0xBEBEBE)));
-//    public final Setting<ColorSetting> offcolor = this.register(new Setting<>("OffColor", new ColorSetting(0x646464)));
-//
-//    private final Setting<Float> psize = this.register( new Setting<>("Size", 1f, 0.1f, 2f));
 
     val actAsArrayList: Boolean by BooleanSetting("ActAsArrayList", true)
 
-    //my settings
     val shadowColor: Color by ColorSetting("ShadowColor", Color(16, 16, 16, 255), true)
     val color2: Color by ColorSetting("Color", Color(16, 16, 16, 255), true)
     val color3: Color by ColorSetting("Color2", Color(197, 155, 155, 155), true)

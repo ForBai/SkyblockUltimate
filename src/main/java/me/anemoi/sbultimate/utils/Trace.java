@@ -1,3 +1,7 @@
+/*
+ * Thanks to Pan4ur for the original code from his client, ThunderHackPlus(https://github.com/Pan4ur/ThunderHackPlus)
+ * Modified by Anemoi/ForBai for use in SBUltimate
+ */
 package me.anemoi.sbultimate.utils;
 
 

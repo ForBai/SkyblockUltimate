@@ -29,6 +29,7 @@ class UseCommand : CommandBase() {
         try {
             if (args.isEmpty()) {
                 ChatUtils.modMessage("§cPlease specify an item.")
+                ChatUtils.modMessage("§cUsage: ${getCommandUsage(sender)}")
                 return
             }
             var pitch = 0.0

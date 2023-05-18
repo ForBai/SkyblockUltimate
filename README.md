@@ -1,7 +1,7 @@
 # FIRST RELEASE 18.03.2023 
 # Skyblock Ultimate
 
-A Funny little FloppaClient addon becaus i was bored. Enjoy!
+A Funny little FloppaClient addon becaus I was bored. Enjoy!
 
 ## Features
 ### Modules
@@ -17,15 +17,12 @@ A Funny little FloppaClient addon becaus i was bored. Enjoy!
 
 ## TODO
 - [ ] Command "/use" with parameters -pitch and -yaw to change your view and -frominv to use items from your inventory not recommended
-- [x] Replace AutoClip with AutoStuff module -> basically .brush placecmd from oringo but it can also do other stuff like walking etc.
 - [x] ImpactKiller module -> spams hype till all mobs in radius are dead
 - [ ] AutoFish -> automatically fish(why idk bored)
 - [ ] ClearHelper -> some features that help your clear
-- [ ] Auto Door -> automatically open doors
 - [ ] AutoFireFreeze -> auto fire freezes in m3/f3
 - [ ] Legit Terms -> like auto terminals, but you still have to click, so technically it's not against the rules
 - [ ] Hit Sound -> plays a sound when you hit/kill a mob
-- [ ] Jerry Gun Fly -> fly with the jerry chine gun drains much mana but idk maybe its worth it
 - [ ] No Cheater -> disables all modules that are very obvious
 - [x] Inventory Hud -> shows your inventory in a hud element will have some funny styles
 - [x] Array List -> shows all modules in a hud element
